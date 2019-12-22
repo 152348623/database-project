@@ -35,8 +35,8 @@
 			<!-- Main -->
 				<section id="main" class="container medium">
 					<header>
-						<h2>Search Order</h2>
-						<p>Search your order</p>
+						<h2>Shelves</h2>
+						<p>Shelves</p>
 					</header>
 					
 					<div class="box">
