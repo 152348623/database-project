@@ -3204,14 +3204,15 @@
 			-moz-border-radius: 5px;
 			position: absolute;
 			left: 50%;
-			top: 40%;
+			top: 55%;
 			transform: translate(-50%, -50%);
 			margin-bottom: auto;
 		}
 		.search-icon{
-			position: absolute;
-			top: 20%;
-			left: 5px;
+			position: relative;
+			/* top: 20%;
+			left: 1%; */
+			padding: 10px;
 			z-index: 1;
 			color: #000000;
 		  }
