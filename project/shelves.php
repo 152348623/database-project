@@ -41,21 +41,18 @@
 					
 					<div class="box">
 						<div class = "bookbutton row ">
-							<div class = "col-5">
+							<div class = "col-9">
 
 							</div>
-							<div class = "col-7">
-								<button>編輯書籍</button>
+							<div class = "col-3">
+								
 								<button>新增書籍資訊</button>
-								<button>上架書籍</button>
-								<button>下架書籍</button>
 								
 							</div>
 						</div>
 						<br>
 						<table class="order table">
 							<tr>
-								<th>選擇</th>
 								<th>書本ISBN</th>
 								<th>書本名稱</th>
 								<th>作者名稱</th>
@@ -63,17 +60,17 @@
 								<th>類別</th>
 								<th>書本價格</th>
 								<th>書本描述</th>
+								<th>下架</th>
 							</tr>
 							<tr>
-							    <td><input type="checkbox" name="vehicle3" value="Boat" checked></td>
-								
 								<td>12121212</td>
 								<td>喔耶</td>
 								<td>1</td>
-								<td>人家4小妹</td>
+								<td>小妹</td>
 								<td>OuO</td>
 								<td>222</td>
-								<td>刪除</td>
+								<td>耶嘿嘿</td>
+								<td><input type="checkbox" name="vehicle3" value="Boat" checked></td>
 							</tr>		
 						</table>
 						<!--

@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Contact - Alpha by HTML5 UP</title>
+		<title>Checkout</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -35,44 +35,41 @@
 			<!-- Main -->
 				<section id="main" class="container medium">
 					<header>
-						<h2>Shelves</h2>
-						<p>Shelves</p>
+						<h2>Checkout</h2>
+						<p>結帳</p>
 					</header>
 					
 					<div class="box">
-						<div class = "bookbutton row ">
-							<div class = "col-9">
-
-							</div>
-							<div class = "col-3">
-								
-								<button>新增書籍資訊</button>
-								
-							</div>
-						</div>
-						<br>
+						
 						<table class="order table">
 							<tr>
+								<th>書本編號</th>
 								<th>書本ISBN</th>
 								<th>書本名稱</th>
 								<th>作者名稱</th>
 								<th>出版社</th>
-								<th>類別</th>
 								<th>書本價格</th>
-								<th>書本描述</th>
-								<th>下架</th>
+							
 							</tr>
-							<tr>
+							    <td>191224</td>
 								<td>12121212</td>
 								<td>喔耶</td>
 								<td>1</td>
-								<td>小妹</td>
-								<td>OuO</td>
-								<td>222</td>
-								<td>耶嘿嘿</td>
-								<td><input type="checkbox" name="vehicle3" value="Boat" checked></td>
+								<td>人家4小妹</td>
+								<td>123</td>
+								
 							</tr>		
 						</table>
+						<div class= "row">
+							<div class = "col-10">
+
+							</div>
+							<div class ="col-2">
+								<button>確定結帳</button>
+							</div>
+							
+						</div>
+                        
 						<!--
 						<form method="post" action="#">
 							<div class="row gtr-50 gtr-uniform">
