@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/register.css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-		<script type="text/javascript" src="js/displayImg.js"></script>
+		<!-- <script type="text/javascript" src="js/displayImg.js"></script> -->
 		
 	</head>
 	<body class="is-preload">
@@ -55,15 +55,8 @@
 				<section class = "container">
 					<form method="post" action="#" style="margin:0 ;">
 						<div class="box row">
-							<div class="col-5" style="background-color:rgb(184, 181, 181);">
-								<form id="form1" runat="server">
-									<input type='file' id="imgInp" />
-									<img id="blah" src="#" alt="your image" />
-								</form>
-								<!-- <img id="cropedBigImg" value='custom' alt="lorem ipsum dolor sit" data-address='' title="自定义背景"/>
-								<input type="file" id="chooseImage" name="file" accept="image/jpeg, image/png"/>
-								<input type="button" value="確認"  onclick="update()">
-								 -->
+							<div class="col-5" style=" padding: 0px; align-self:center">
+								<img id="output" style="width: 330px;"/>
 							</div>
 							<div class="col-7">
 								
@@ -141,13 +134,18 @@
 							</div>
 							<br>
 							<div class="col-5" style="margin-top:10px; padding-left: 0px;">
-								<ul class="actions special">
-									<input type="file" id="chooseImage" name="file">
-									<!-- <li><input type="file" id="chooseImage" name="上傳書籍圖片"></li> -->
-									<!-- 保存用户自定义的背景图片 -->
-
-									<!-- <input type="file" value="上傳書籍圖片" /></li> -->
-								</ul>
+									<input type="button" value="上傳圖片" style="margin-top: -50px;"/>
+									<input type="file" accept="image/*" onchange="loadFile(event)" value="上傳圖片" accept="image/png,image/jpg,image/jpeg" id="customFileInput" style="opacity:0; position:absolute; margin: 0px 0px 0px -90px;" />
+									<script>
+										var loadFile = function(event) {
+											var reader = new FileReader();
+											reader.onload = function(){
+											var output = document.getElementById('output');
+											output.src = reader.result;
+											};
+											reader.readAsDataURL(event.target.files[0]);
+										};
+										</script>
 							</div>
 							<div class="col-7">
 
