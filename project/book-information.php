@@ -12,7 +12,6 @@
 		<link rel="stylesheet" href="assets/css/register.css" />
 		<link rel="stylesheet" href="assets/css/book-information.css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-		<!-- <script type="text/javascript" src="js/displayImg.js"></script> -->
 		
 	</head>
 	<body class="is-preload">
