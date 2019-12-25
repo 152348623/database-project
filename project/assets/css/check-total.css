@@ -1,0 +1,24 @@
+.box{
+    display: grid;
+}
+.div-total{
+    display:flex; 
+    justify-content: center; 
+    padding: 0px;
+}
+.pay{
+    display:flex;
+    margin-left: 20px;
+}
+.pay-content{
+    color: red;
+    text-align: center;
+}
+.pay-total-text,.pay-total-number{
+    align-self: center;
+    font-size: large;
+    
+}
+.go{
+    margin-left: 50px;
+}

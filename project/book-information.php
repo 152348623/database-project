@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/register.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/book-information.css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 		
@@ -18,32 +19,27 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
-					<h1><a href="index.html">Alpha</a> by HTML5 UP</h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="#" class="icon solid fa-angle-down">Layouts</a>
-								<ul>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li><a href="elements.html">Elements</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option One</a></li>
-											<li><a href="#">Option Two</a></li>
-											<li><a href="#">Option Three</a></li>
-											<li><a href="#">Option Four</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="#" class="button">Sign Up</a></li>
-						</ul>
-					</nav>
-				</header>
+			<header id="header" class="alt" style="background:#444; height:70px;">
+				<img src="images/Logo.jpg" alt="NTUT Online Book Store Logo">
+				<nav id="nav">
+					<ul class="header-ul" style="margin-top: 10px">
+						<li><a href="home.php">HOME</a></li>
+						<li>
+							<a href="#" class="icon solid fa-angle-down">PERSONAL INFO</a>
+							<ul>
+								<li><a href="shelves.php">上下架</a></li>
+									<ul>
+										<li><a href="write-book.php">編輯書籍資訊</a></li>
+										<li><a href="#">上下架書籍</a></li>
+									</ul>
+								<li><a href="cart.php">購物車</a></li>
+								<li><a href="#">個人資料</a></li>
+							</ul>
+						</li>
+						<li><a href="homeBeforeSign.php" class="button">LOGOUT</a></li> <!-- 跳message 按下後跳轉頁面 -->
+					</ul>
+				</nav>
+			</header>
 
 			<!-- Main -->
 				<section id="main" class="container medium">

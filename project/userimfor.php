@@ -1,11 +1,3 @@
-<?php require_once('Connections/book_model.php'); ?>
-<?php
-mysql_select_db($database_book_model, $book_model);
-$query_Recordset1 = sprintf("SELECT * FROM cart inner join `book` using (Book_id) WHERE id = '%s'",$_POST["choice"]);
-$Recordset1 = mysql_query($query_Recordset1, $book_model) or die(mysql_error());
-$row_Recordset1 = mysql_fetch_assoc($Recordset1);
-$totalRows_Recordset1 = mysql_num_rows($Recordset1);
-?>
 <!DOCTYPE HTML>
 <!--
 	Alpha by HTML5 UP
@@ -14,9 +6,10 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 -->
 <html>
 	<head>
-		<title>Checkout</title>
+		<title>Userimfor</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/register.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
@@ -44,70 +37,93 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 					</ul>
 				</nav>
 			</header>
+
 			<!-- Main -->
-				<section id="main" class="container">
-					<header>
-						<h2>Checkout</h2>
-						<p>結帳</p>
-					</header>
+				<section id="main" class="container medium">
 					
 					<div class="box">
-						
-						<table class="order table">
-							<tr>
-								<th>書本ISBN</th>
-								<th>書本名稱</th>
-								<th>作者名稱</th>
-								<th>出版社</th>
-								<th>書本價格</th>
-							
-							</tr>
-							    <td><?php echo $row_Recordset1["ISBN"] ?></td>
-								<td><?php echo $row_Recordset1["Name"] ?></td>
-								<td><?php echo $row_Recordset1["Author_name"] ?></td>
-								<td><?php echo $row_Recordset1["Publisher"] ?></td>
-								<td><?php echo $row_Recordset1["Cost"] ?></td>
-								
-							</tr>		
-						</table>
-						<div class= "row">
-							<div class = "col-10">
-
-							</div>
-							<div class ="col-2">
-                            <form name="form" action="insert.php" method="POST">
-                            	<input type="hidden" value="<?php echo $row_Recordset1["Seller_id"]?>" id="Seller_id" name="Seller_id">
-                                <input type="hidden" value="<?php echo $row_Recordset1["Book_id"]?>" id="Book_id" name="Book_id">
-								<input type="submit" name="sure" id="sure" value="確定結帳">
-								<input type="hidden" name="MM_insert" value="form">
-                            </form>
-							</div>
-							
-						</div>
-                        
-						<!--
+					    <div class ="imfor" style = "text-align: center;"><h2>個人資訊</h2>
 						<form method="post" action="#">
 							<div class="row gtr-50 gtr-uniform">
-								<div class="col-2 col-12-mobilep">
-									<input type="text" name="name" id="name" value="" placeholder="Name" />
+										<div class="col-3">
+
+										</div>
+										<div class="col-1" style="align-self:center">
+											<p>帳號</p> 
+										</div>
+										<div class="col-5">
+											<input type="text" name="Account" id="name" value="" />
+										</div>
+                                        <div class="col-3">
+
+										</div>
+								    <br>
+								<div class="col-3">
+
 								</div>
-								<div class="col-2 col-12-mobilep">
-									<input type="email" name="email" id="email" value="" placeholder="Email" />
+								<div class="col-1" style="align-self:center">
+									<p>密碼</p> 
 								</div>
-								<div class="col-2">
-									<input type="text" name="subject" id="subject" value="" placeholder="Subject" />
+								<div class="col-5">
+									<input type="text" name="Account" id="name" value="" />
 								</div>
-								<div class="col-2">
-									<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+								<div class="col-3">
+
 								</div>
-								<div class="col-12">
+						        <br>
+                                <div class="col-3">
+
+								</div>
+								<div class="col-1" style="align-self:center">
+									<p>名字</p> 
+								</div>
+								<div class="col-5">
+									<input type="text" name="Account" id="name" value="" />
+								</div>
+								<div class="col-3">
+
+								</div>
+								<br>
+								<div class="col-3">
+
+								</div>
+								<div class="col-1" style="align-self:center" >
+									<p>電子郵件</p> 
+								</div>
+								<div class="col-5">
+									<input type="text" name="Account" id="name" value="" />
+								</div>
+								<div class="col-3">
+
+								</div>
+								<br>
+								<div class="col-3">
+
+								</div>
+								<div class="col-1" style="align-self:center">
+									<p>電話號碼</p> 
+								</div>
+								<div class="col-5">
+									<input type="text" name="Account" id="name" value="" />
+								</div>
+								<div class="col-3">
+
+								</div>
+								<br>
+								<div class="col-4">
+
+								</div>
+								<div class="col-5">
 									<ul class="actions special">
-										<li><input type="submit" value="Send Message" /></li>
+										<li><input type="submit" value="修改完成" /></li>
 									</ul>
 								</div>
+								<div class="col-3">
+
+								</div>
 							</div>
+								
 						</form>
-						-->
 					</div>
 				</section>
 
@@ -144,6 +160,3 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 
 	</body>
 </html>
-<?php
-mysql_free_result($Recordset1);
-?>

@@ -1,3 +1,21 @@
+<?php require_once('Connections/book_model.php'); ?>
+<?php
+$colname_Recordset1 = "-1";
+if (isset($_POST['id'])) {
+  $colname_Recordset1 = $_POST['id'];
+}
+mysql_select_db($database_book_model, $book_model);
+$query_Recordset1 = sprintf("SELECT * FROM order_list WHERE Order_number = %s", $colname_Recordset1);
+$Recordset1 = mysql_query($query_Recordset1, $book_model) or die(mysql_error());
+$row_Recordset1 = mysql_fetch_assoc($Recordset1);
+$totalRows_Recordset1 = mysql_num_rows($Recordset1);
+
+mysql_select_db($database_book_model, $book_model);
+$query_Recordset2 = sprintf("SELECT * FROM book WHERE Order_number = %s", $colname_Recordset1);
+$Recordset2 = mysql_query($query_Recordset2, $book_model) or die(mysql_error());
+$row_Recordset2 = mysql_fetch_assoc($Recordset2);
+$totalRows_Recordset2 = mysql_num_rows($Recordset2);
+?>
 <!DOCTYPE HTML>
 <!--
 	Alpha by HTML5 UP
@@ -15,25 +33,29 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
-					<h1><a href="index.html">Alpha</a> by HTML5 UP</h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="administrator-home.html" style="font-family:Microsoft JhengHei;">首頁</a></li>
-							<li>
-								<a href="#" class="icon solid fa-angle-down" style="font-family:Microsoft JhengHei;">NAME</a>
- 								<ul>
-									<li><a href="generic.html" style="font-family:Microsoft JhengHei;">會員資料</a></li>
-									<li><a href="searchorder.html" style="font-family:Microsoft JhengHei;">訂單編號</a></li>
-								</ul>
-							</li>
-							<li><a href="#" class="button" style="font-family:Microsoft JhengHei;">登出</a></li>
-						</ul>
-					</nav>
-				</header>
-
+			<header id="header" class="alt" style="background:#444; height:70px;">
+				<img src="images/Logo.jpg" alt="NTUT Online Book Store Logo">
+				<nav id="nav">
+					<ul class="header-ul" style="margin-top: 10px">
+						<li><a href="home.php">HOME</a></li>
+						<li>
+							<a href="#" class="icon solid fa-angle-down">PERSONAL INFO</a>
+							<ul>
+								<li><a href="shelves.php">上下架</a></li>
+									<ul>
+										<li><a href="write-book.php">編輯書籍資訊</a></li>
+										<li><a href="#">上下架書籍</a></li>
+									</ul>
+								<li><a href="cart.php">購物車</a></li>
+								<li><a href="#">個人資料</a></li>
+							</ul>
+						</li>
+						<li><a href="homeBeforeSign.php" class="button">LOGOUT</a></li> <!-- 跳message 按下後跳轉頁面 -->
+					</ul>
+				</nav>
+			</header>
 			<!-- Main -->
-				<section id="main" class="container medium">
+				<section id="main" class="container">
 					<header>
 						<h2>Manage All</h2>
 						
@@ -49,18 +71,32 @@
 							    <td>書本名稱</td>
 								<td>出版社</td>
 								<td>價格</td>
+                                <td></td>
 								
 							</tr>
 							<tr>
-								<td>1222</td>
-								<td>33331</td>
-								<td>13333</td>
-								<td>備貨中</td>
-								<td>貨到付款</td>
-								<td>我是笨蛋</td>
-								<td>資工</td>
-								<td>133</td>
-								
+								<td><?php echo $row_Recordset1['Order_number']; ?></td>
+								<td><?php echo $row_Recordset1['Seller_id']; ?></td>
+								<td><?php echo $row_Recordset1['Customer_id']; ?></td>
+								<td><?php
+									 if($row_Recordset1['State'] == 0){
+										 echo "我忘記狀態0是啥了";
+									 }
+									 else if($row_Recordset1['State'] == 1){
+										 echo "我忘記狀態1是啥了";
+									 }
+									 ?></td>
+								<td><?php 
+									if($row_Recordset1['Delivery'] == 0){
+										 echo "我忘記交貨0是啥了";
+									 }
+									 else if($row_Recordset1['Delivery'] == 1){
+										 echo "我忘記交貨1是啥了";
+									 }?></td>
+								<td><?php echo $row_Recordset2['Name']; ?></td>
+								<td><?php echo $row_Recordset2['Publisher']; ?></td>
+								<td><?php echo $row_Recordset2['Cost']; ?></td>
+								<td><a href="searchorder.php">返回</a></td>
 							</tr>		
 						</table>
 						<!--

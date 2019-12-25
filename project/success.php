@@ -1,17 +1,12 @@
 <?php require_once('Connections/book_model.php'); ?>
 <?php
-if ((isset($_POST['delid'])) && ($_POST['delid'] != "")) {
-  $deleteSQL = sprintf("DELETE FROM book WHERE Book_id='%s'",$_POST['delid']);
-
-  mysql_select_db($database_book_model, $book_model);
-  $Result1 = mysql_query($deleteSQL, $book_model) or die(mysql_error());
-}
-
 mysql_select_db($database_book_model, $book_model);
-$query_Recordset1 = "SELECT * FROM book";
+$query_Recordset1 = sprintf("SELECT * FROM order_list inner join book using (Order_number) WHERE Order_number = '%s' ",$_GET["id"]);
+printf($query_Recordset1);
 $Recordset1 = mysql_query($query_Recordset1, $book_model) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
+print_r($row_Recordset1);
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -20,13 +15,13 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
+<head>
 		<title>Contact - Alpha by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body class="is-preload">
+<body class="is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -51,57 +46,44 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 					</ul>
 				</nav>
 			</header>
-
 			<!-- Main -->
 				<section id="main" class="container">
 					<header>
-						<h2>Shelves</h2>
-						<p>Shelves</p>
+						<h2>訂購成功</h2>
+						
 					</header>
-					
 					<div class="box">
-						<div class = "bookbutton row ">
-							<div class = "col-10">
-
-							</div>
-							<div class = "col-3">
-							  <input type="button" onclick="javascript:location.href='AddBook.php'" value="新增書籍">
-								
-							</div>
-						</div>
-						<br>
 						<table class="order table">
 							<tr>
-								<th>書本ISBN</th>
-								<th>書本名稱</th>
-								<th>作者名稱</th>
-								<th>出版社</th>
-								<th>類別</th>
-								<th>書本價格</th>
-								<th>書本描述</th>
-								<th></th>
+								<th>訂單編號</th>
+								<th>狀態</th>
+								<th>運送方式</th>
+							    <td>書本名稱</td>
+								<td>價格</td>
+                                <td></td>
+								
 							</tr>
-                            <?php do { ?>
 							<tr>
-								<td><?php echo $row_Recordset1["ISBN"]; ?></td>
-								<td><?php echo $row_Recordset1["Name"]; ?></td>
-								<td><?php echo $row_Recordset1["Author_name"]; ?></td>
-								<td><?php echo $row_Recordset1["Publisher"]; ?></td>
-								<td><?php if($row_Recordset1["Category"] == 0){
-												echo "童話故事";
-										  }
-										  else if($row_Recordset1["Category"] == 1){
-											  	echo "恐怖小說";
-										  }?></td>
-								<td><?php echo $row_Recordset1["Cost"]; ?></td>
-								<td><?php echo $row_Recordset1["Description"]; ?></td>
-                                <form id="form1" name="form1" method="post" action="" >
-								<td><input type="submit" name="button" id="button" value="下架">
-                                <input type="hidden" name="delid" id="delid" value="<?php echo $row_Recordset1["Book_id"] ?>">
-                                </td>
-                                </form>
-							</tr>
-                            <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>		
+								<td><?php echo $row_Recordset1['Order_number']; ?></td>
+                                <td><?php
+									 if($row_Recordset1['State'] == 0){
+										 echo "我忘記狀態0是啥了";
+									 }
+									 else if($row_Recordset1['State'] == 1){
+										 echo "我忘記狀態1是啥了";
+									 }
+									 ?></td>
+                                 <td><?php 
+									if($row_Recordset1['Delivery'] == 0){
+										 echo "我忘記交貨0是啥了";
+									 }
+									 else if($row_Recordset1['Delivery'] == 1){
+										 echo "我忘記交貨1是啥了";
+                                 }?></td>
+								<td><?php echo $row_Recordset1['Name']; ?></td>
+								<td><?php echo $row_Recordset1['Cost']; ?></td>
+								<td><a href="home.php">返回首頁</a></td>
+							</tr>		
 						</table>
 						<!--
 						<form method="post" action="#">
@@ -152,15 +134,15 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
-	</body>
+</body>
 </html>
 <?php
 mysql_free_result($Recordset1);

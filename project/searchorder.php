@@ -1,14 +1,21 @@
 <?php require_once('Connections/book_model.php'); ?>
 <?php
 if ((isset($_POST['delid'])) && ($_POST['delid'] != "")) {
-  $deleteSQL = sprintf("DELETE FROM book WHERE Book_id='%s'",$_POST['delid']);
+  $deleteSQL = sprintf("DELETE FROM order_list WHERE Order_number='%s'",$_POST['delid']);
 
   mysql_select_db($database_book_model, $book_model);
   $Result1 = mysql_query($deleteSQL, $book_model) or die(mysql_error());
 }
 
+
 mysql_select_db($database_book_model, $book_model);
-$query_Recordset1 = "SELECT * FROM book";
+if(isset($_POST["button3"]) && $_POST["search"] != ""){
+$query_Recordset1 = sprintf("SELECT * FROM order_list WHERE %s = %s",$_POST["type"],$_POST["search"]);
+}
+else
+{
+	$query_Recordset1 = "SELECT * FROM order_list";
+}
 $Recordset1 = mysql_query($query_Recordset1, $book_model) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
@@ -55,53 +62,50 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 			<!-- Main -->
 				<section id="main" class="container">
 					<header>
-						<h2>Shelves</h2>
-						<p>Shelves</p>
+						<h2>Search Order</h2>
+						<p>Search your order</p>
 					</header>
-					
 					<div class="box">
-						<div class = "bookbutton row ">
-							<div class = "col-10">
-
-							</div>
-							<div class = "col-3">
-							  <input type="button" onclick="javascript:location.href='AddBook.php'" value="新增書籍">
-								
-							</div>
-						</div>
-						<br>
 						<table class="order table">
 							<tr>
-								<th>書本ISBN</th>
-								<th>書本名稱</th>
-								<th>作者名稱</th>
-								<th>出版社</th>
-								<th>類別</th>
-								<th>書本價格</th>
-								<th>書本描述</th>
-								<th></th>
+								<th>訂單編號</th>
+								<th>賣家編號</th>
+								<th>顧客編號</th>
+								<th>狀態</th>
+								<th>運送方式</th>
+								<th>詳細</th>
+								<th>刪除</th>
 							</tr>
                             <?php do { ?>
 							<tr>
-								<td><?php echo $row_Recordset1["ISBN"]; ?></td>
-								<td><?php echo $row_Recordset1["Name"]; ?></td>
-								<td><?php echo $row_Recordset1["Author_name"]; ?></td>
-								<td><?php echo $row_Recordset1["Publisher"]; ?></td>
-								<td><?php if($row_Recordset1["Category"] == 0){
-												echo "童話故事";
-										  }
-										  else if($row_Recordset1["Category"] == 1){
-											  	echo "恐怖小說";
-										  }?></td>
-								<td><?php echo $row_Recordset1["Cost"]; ?></td>
-								<td><?php echo $row_Recordset1["Description"]; ?></td>
-                                <form id="form1" name="form1" method="post" action="" >
-								<td><input type="submit" name="button" id="button" value="下架">
-                                <input type="hidden" name="delid" id="delid" value="<?php echo $row_Recordset1["Book_id"] ?>">
-                                </td>
-                                </form>
-							</tr>
-                            <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>		
+								<td><?php echo $row_Recordset1['Order_number']; ?></td>
+								<td><?php echo $row_Recordset1['Seller_id']; ?></td>
+								<td><?php echo $row_Recordset1['Customer_id']; ?></td>
+								<td><?php
+									 if($row_Recordset1['State'] == 0){
+										 echo "我忘記狀態0是啥了";
+									 }
+									 else if($row_Recordset1['State'] == 1){
+										 echo "我忘記狀態1是啥了";
+									 }
+									 ?></td>
+								<td><?php 
+									if($row_Recordset1['Delivery'] == 0){
+										 echo "我忘記交貨0是啥了";
+									 }
+									 else if($row_Recordset1['Delivery'] == 1){
+										 echo "我忘記交貨1是啥了";
+									 }?></td>
+								<td><form id="form1" name="form1" method="post" action="managedetailorder.php">
+                                    <input name="id" type="hidden" id="id" value="<?php echo $row_Recordset1['Order_number']; ?>" />
+                                    <input type="submit" name="button" id="button" value="詳細" />
+                                  </form></td>
+								<td><form id="form2" name="form2" method="post" action="">
+                                    <input type="submit" name="button2" id="button2" value="刪除" />
+                                    <input name="delid" type="hidden" id="delid" value="<?php echo $row_Recordset1['Order_number']; ?>" />
+                                  </form></td>
+							</tr>	
+                            <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
 						</table>
 						<!--
 						<form method="post" action="#">
