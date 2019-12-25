@@ -30,27 +30,22 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<header id="header" class="alt" style="background:#444; height:70px;">
-				<img src="images/Logo.jpg" alt="NTUT Online Book Store Logo">
-				<nav id="nav">
-					<ul class="header-ul" style="margin-top: 10px">
-						<li><a href="home.php">HOME</a></li>
-						<li>
-							<a href="#" class="icon solid fa-angle-down">PERSONAL INFO</a>
-							<ul>
-								<li><a href="shelves.php">上下架</a></li>
-									<ul>
-										<li><a href="write-book.php">編輯書籍資訊</a></li>
-										<li><a href="#">上下架書籍</a></li>
-									</ul>
-								<li><a href="cart.php">購物車</a></li>
-								<li><a href="#">個人資料</a></li>
-							</ul>
-						</li>
-						<li><a href="homeBeforeSign.php" class="button">LOGOUT</a></li> <!-- 跳message 按下後跳轉頁面 -->
-					</ul>
-				</nav>
-			</header>
+				<header id="header">
+					<h1><a href="index.html">Alpha</a> by HTML5 UP</h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="administrator-home.html" style="font-family:Microsoft JhengHei;">首頁</a></li>
+							<li>
+								<a href="#" class="icon solid fa-angle-down" style="font-family:Microsoft JhengHei;">NAME</a>
+ 								<ul>
+									<li><a href="generic.html" style="font-family:Microsoft JhengHei;">會員資料</a></li>
+									<li><a href="searchorder.html" style="font-family:Microsoft JhengHei;">訂單編號</a></li>
+								</ul>
+							</li>
+							<li><a href="#" class="button" style="font-family:Microsoft JhengHei;">登出</a></li>
+						</ul>
+					</nav>
+				</header>
 
 			<!-- Main -->
 				<section id="main" class="container">
@@ -80,6 +75,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 								<th>書本價格</th>
 								<th>書本描述</th>
 								<th></th>
+								<th></th>
 							</tr>
                             <?php do { ?>
 							<tr>
@@ -97,6 +93,9 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 								<td><?php echo $row_Recordset1["Description"]; ?></td>
                                 <form id="form1" name="form1" method="post" action="" >
 								<td><input type="submit" name="button" id="button" value="下架">
+                                <input type="hidden" name="delid" id="delid" value="<?php echo $row_Recordset1["Book_id"] ?>">
+								</td>
+								<td><input type="submit" name="button" id="button" value="編輯">
                                 <input type="hidden" name="delid" id="delid" value="<?php echo $row_Recordset1["Book_id"] ?>">
                                 </td>
                                 </form>
