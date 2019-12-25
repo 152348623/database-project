@@ -8,11 +8,13 @@ if ((isset($_POST['delid'])) && ($_POST['delid'] != "")) {
 }
 
 mysql_select_db($database_book_model, $book_model);
-$query_Recordset1 = "SELECT * FROM book";
+$query_Recordset1 = sprintf("SELECT * FROM book WHERE seller_id = '%s'",$_SESSION["user_id"]);
 $Recordset1 = mysql_query($query_Recordset1, $book_model) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);
 $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 ?>
+
+
 <!DOCTYPE HTML>
 <!--
 	Alpha by HTML5 UP
@@ -53,7 +55,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 			</header>
 
 			<!-- Main -->
-				<section id="main" class="container" style="width:80em;">
+				<section id="main" class="container" style="width:80em">
 					<header>
 						<h2>你的書櫃</h2>
 						<p>趕快將你的書上架</p>
@@ -100,10 +102,9 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 								<td><input type="submit" name="button" id="button" value="下架">
                                 <input type="hidden" name="delid" id="delid" value="<?php echo $row_Recordset1["Book_id"] ?>">
 								</td>
-								<input type="submit" name="button" id="button" value="編輯">
-                                <input type="hidden" name="delid" id="delid" value="<?php echo $row_Recordset1["Book_id"] ?>">
-                                </td>
-                                </form>
+								</form>
+								<td ><input type ="submit" onclick="javascript:location.href='book-information.php'" value="編輯"></input></td>
+								
 							</tr>
                             <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>		
 						</table>

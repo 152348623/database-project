@@ -47,7 +47,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 				<img src="images/Logo.jpg" alt="NTUT Online Book Store Logo">
 				<nav id="nav">
 					<ul class="header-ul" style="margin-top: 10px">
-						<li><a href="home.php">HOME</a></li>
+						<li><a href="homeBeforeSign.php">HOME</a></li>
 						<li>
 							<a href="#" class="icon solid fa-angle-down">PERSONAL INFO</a>
 							<ul>
@@ -81,7 +81,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 											<p>帳號</p> 
 										</div>
 										<div class="col-4">
-											<input type="text" name="Account" id="Account" value="" />
+											<input type="text" name="Account" id="Account" value="" required="required" />
 										</div>
                                         <div class="col-3">
 
@@ -94,7 +94,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 									<p>密碼</p> 
 								</div>
 								<div class="col-4">
-									<input type="password" name="Password" id="Password" value="" />
+									<input type="password" name="Password" id="Password" value="" required="required" />
 								</div>
 								<div class="col-3">
 
@@ -107,7 +107,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 									<p>名字</p> 
 								</div>
 								<div class="col-4">
-									<input type="text" name="Name" id="Name" value="" />
+									<input type="text" name="Name" id="Name" value="" required="required" />
 								</div>
 								<div class="col-3">
 
@@ -120,7 +120,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 									<p>電子郵件</p> 
 								</div>
 								<div class="col-4">
-									<input type="text" name="E-mail" id="E-mail" value="" />
+									<input type="text" name="E-mail" id="E-mail" value="" required="required" />
 								</div>
 								<div class="col-3">
 
@@ -133,7 +133,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 									<p>電話號碼</p> 
 								</div>
 								<div class="col-4">
-									<input type="text" name="Phone" id="Phone" value="" />
+									<input type="text" name="Phone" id="Phone" value="" required="required" />
 								</div>
 								<div class="col-3">
 

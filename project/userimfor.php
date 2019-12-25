@@ -115,8 +115,7 @@
 								</div>
 								<div class="col-5">
 									<ul class="actions special">
-										<li><input type="submit" value="修改完成" /></li>
-									</ul>
+									<li><input type ="button" onclick="javascript:location.href='userimfor.php'" value="修改完成"></input></li>									</ul>
 								</div>
 								<div class="col-3">
 

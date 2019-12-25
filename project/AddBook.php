@@ -65,11 +65,11 @@ if(!isset($_SESSION["user_id"])){
 							<ul>
 								<li><a href="shelves.php">上下架</a></li>
 									<ul>
-										<li><a href="write-book.php">編輯書籍資訊</a></li>
-										<li><a href="#">上下架書籍</a></li>
+										<li><a href="shelves.php">編輯書籍資訊</a></li>
+										<li><a href="#shelves">上下架書籍</a></li>
 									</ul>
 								<li><a href="cart.php">購物車</a></li>
-								<li><a href="#">個人資料</a></li>
+								<li><a href="#">編輯個人資料</a></li>
 							</ul>
 						</li>
 						<li><a href="homeBeforeSign.php" class="button">LOGOUT</a></li> <!-- 跳message 按下後跳轉頁面 -->
@@ -140,8 +140,15 @@ if(!isset($_SESSION["user_id"])){
 										<div class="col-8">
 											<label for="Category"></label>
 											<select name="Category" id="Category">
-                                                <option value ="0">童話故事</option>
-                                                <option value ="1">恐怖小說</option>
+                                                <option value ="0">哲學類</option>
+												<option value ="1">宗教類</option>
+												<option value ="2">科學類</option>
+												<option value ="3">應用科學類</option>
+												<option value ="4">社會科學類</option>
+												<option value ="5">史地類</option>
+												<option value ="6">世界史地類</option>
+												<option value ="7">語言文學類</option>
+                                                <option value ="8">藝術類</option>
 										  </select>
 										</div>
 

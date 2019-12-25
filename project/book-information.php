@@ -1,3 +1,8 @@
+<?php
+$select = sprintf("SELECT * from book WHERE id='%s'",$_POST["Book_id"]);
+$sql = mysql_query($select);
+$row_select = mysql_fetch_assoc($sql);
+?>
 <!DOCTYPE HTML>
 <!--
 	Alpha by HTML5 UP
@@ -15,6 +20,14 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 		
 	</head>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+	var id = <?php echo $_POST["Book_id"]; ?>;
+    function insert_cart(){
+		$.post("insert_cart.php", { Book_id:a } );
+		document.location("cart.php");
+	}
+	</script>
 	<body class="is-preload">
 		<div id="page-wrapper">
 
@@ -63,7 +76,7 @@
 										</div>
 										<div class="col-8">
 											<p>
-												123456789
+												<?php echo $row_select["ISBN"] ?>
 											</p >
 										</div>
 
@@ -75,7 +88,7 @@
 										</div>
 										<div class="col-8">
 											<p>
-												123456789
+												<?php echo $row_select["Name"] ?>
 											</p>
 										</div>
 
@@ -87,7 +100,7 @@
 										</div>
 										<div class="col-8">
 											<p>
-												123456789
+												<?php echo $row_select["Author_name"] ?>
 											</p>
 										</div>
 
@@ -99,7 +112,7 @@
 										</div>
 										<div class="col-8">
 											<p>
-												123456789
+												<?php echo $row_select["Publisher"] ?>
 											</p>
 										</div>
 
@@ -107,11 +120,11 @@
 
 										<div class="col-1"> </div>
 										<div class="col-3" style="align-self:center">
-											<p class="content-title">類別：</p> 
+											<p class="content-title">類別：</p> <!--記得改這裡!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 										</div>
 										<div class="col-8">
 											<p>
-												123456789
+												<?php echo $row_select["類別"] ?>
 											</p>
 										</div>
 
@@ -123,7 +136,7 @@
 										</div>
 										<div class="col-8">
 											<p>
-												123456789
+												<?php echo $row_select["cost"] ?>
 											</p>
 										</div>
 
@@ -135,7 +148,7 @@
 										</div>
 										<div class="col-8">
 											<p>
-												123456789
+												<?php echo $row_select["Description"] ?>
 											</p>
 										</div>
 
@@ -149,7 +162,7 @@
 								<div class="col-6"> </div>
 								<div class="col-6">
 									<ul class="actions special">
-										<li><input type="submit" value="加入購物車" /></li>
+										<li><input type="button" onclick="insert_cart()" value="加入購物車" /></li>
 									</ul>
 								</div>
 							</div>
