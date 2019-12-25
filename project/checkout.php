@@ -14,7 +14,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 -->
 <html>
 	<head>
-		<title>Checkout</title>
+		<title>北科訂書系統-商品結帳</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -47,8 +47,8 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 			<!-- Main -->
 				<section id="main" class="container">
 					<header>
-						<h2>Checkout</h2>
-						<p>結帳</p>
+						<h2>結帳</h2>
+						<p>買起來</p>
 					</header>
 					
 					<div class="box">
@@ -71,13 +71,14 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 							</tr>		
 						</table>
 						<div class= "row">
-							<div class = "col-10">
+							<div class = "col-8">
 
 							</div>
-							<div class ="col-2">
+							<div class ="col-4">
                             <form name="form" action="insert.php" method="POST">
                             	<input type="hidden" value="<?php echo $row_Recordset1["Seller_id"]?>" id="Seller_id" name="Seller_id">
                                 <input type="hidden" value="<?php echo $row_Recordset1["Book_id"]?>" id="Book_id" name="Book_id">
+								<a href="cart.php"><input type="button" value="取消"></a>
 								<input type="submit" name="sure" id="sure" value="確定結帳">
 								<input type="hidden" name="MM_insert" value="form">
                             </form>

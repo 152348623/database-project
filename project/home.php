@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>NTUT Online Book Store</title>
+		<title>北科訂書系統-首頁</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />

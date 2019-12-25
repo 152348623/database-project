@@ -33,7 +33,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 -->
 <html>
 	<head>
-		<title>Contact - Alpha by HTML5 UP</title>
+		<title>北科訂書系統-註冊</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/register.css" />
@@ -66,7 +66,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 			</header>
 
 			<!-- Main -->
-				<section id="main" class="container medium">
+				<section id="main" class="container">
 					<header>
 						<h2>註冊</h2>
 						<p>立即加入，成為愛書的文青</p>
@@ -74,68 +74,68 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 					<div class="box">
 						<form id="form1" name="form1" method="POST" action="<?php echo $editFormAction; ?>">
 							<div class="row gtr-50 gtr-uniform">
-										<div class="col-2">
+										<div class="col-3">
 
 										</div>
-										<div class="col-1" style="align-self:center">
+										<div class="col-2 regiser-div" style="align-self:center">
 											<p>帳號</p> 
 										</div>
-										<div class="col-5">
+										<div class="col-4">
 											<input type="text" name="Account" id="Account" value="" />
 										</div>
-                                        <div class="col-4">
+                                        <div class="col-3">
 
 										</div>
 								<br>
-								<div class="col-2">
+								<div class="col-3">
 
 								</div>
-								<div class="col-1" style="align-self:center">
+								<div class="col-2 regiser-div" style="align-self:center">
 									<p>密碼</p> 
 								</div>
-								<div class="col-5">
+								<div class="col-4">
 									<input type="password" name="Password" id="Password" value="" />
 								</div>
-								<div class="col-4">
+								<div class="col-3">
 
 								</div>
 						        <br>
-                                <div class="col-2">
+                                <div class="col-3">
 
 								</div>
-								<div class="col-1" style="align-self:center">
+								<div class="col-2 regiser-div" style="align-self:center">
 									<p>名字</p> 
 								</div>
-								<div class="col-5">
+								<div class="col-4">
 									<input type="text" name="Name" id="Name" value="" />
 								</div>
-								<div class="col-4">
+								<div class="col-3">
 
 								</div>
 								<br>
-								<div class="col-2">
+								<div class="col-3">
 
 								</div>
-								<div class="col-1" style="align-self:center" >
+								<div class="col-2 regiser-div" style="align-self:center" >
 									<p>電子郵件</p> 
 								</div>
-								<div class="col-5">
+								<div class="col-4">
 									<input type="text" name="E-mail" id="E-mail" value="" />
 								</div>
-								<div class="col-4">
+								<div class="col-3">
 
 								</div>
 								<br>
-								<div class="col-2">
+								<div class="col-3">
 
 								</div>
-								<div class="col-1" style="align-self:center">
+								<div class="col-2 regiser-div" style="align-self:center">
 									<p>電話號碼</p> 
 								</div>
-								<div class="col-5">
+								<div class="col-4">
 									<input type="text" name="Phone" id="Phone" value="" />
 								</div>
-								<div class="col-4">
+								<div class="col-3">
 
 								</div>
 								<br>

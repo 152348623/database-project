@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Userimfor</title>
+		<title>北科訂書系統-個人資訊</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/register.css" />

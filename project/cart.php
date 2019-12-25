@@ -23,7 +23,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 -->
 <html>
 	<head>
-		<title>Cart</title>
+		<title>北科訂書系統-購物車</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -61,21 +61,21 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 				</nav>
 			</header>
 			<!-- Main -->
-				<section id="main" class="container medium">
+				<section id="main" class="container">
 					<header>
-						<h2>Cart</h2>
-						<p>Your shopping cart</p>
+						<h2>購物車</h2>
+						<p>你的購物車商品</p>
 					</header>
 					
 					<div class="box">
                     <form method="POST" action="checkout.php">
 						<div class = "bookbutton row ">
-							<div class = "col-9">
+							<div class = "col-8">
 
 							</div>
-							<div class = "col-3">
-								<button type="submit" >結帳</button>
-								<button onclick="del()">刪除</button>
+							<div class = "col-4">
+								<input type="submit" value="結帳">
+								<input type="button" onclick="del()" value="刪除">
 							</div>
 						</div>
 						<br>
